@@ -32,13 +32,15 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Optional
 from colorama import Fore, Style, init
+from dotenv import load_dotenv
+load_dotenv()
 
 init(autoreset=True)  # colorama: cores no terminal
 
 # ──────────────────────────────────────────────
 #  CONFIGURAÇÕES
 # ──────────────────────────────────────────────
-
+chave = os.getenv("PRIVATE_KEY")
 CONFIG = {
     "modo_simulacao": True,       # True = só loga, False = executa ordens
     "min_lucro_pct": 1.5,         # só entra se lucro >= 1.5% (cobre taxas)
